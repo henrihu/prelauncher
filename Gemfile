@@ -43,6 +43,6 @@ gem "font-awesome-rails"
 gem "paperclip"
 
 group :development, :test do
-
+	gem 'pry-rails'
 end
 

@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     has_many :referrals, class_name: "User", foreign_key: :referrer_id
 
     validates :email, uniqueness: true, format: { with: Devise::email_regexp, message: "Invalid email format." }, presence: true
-    #validates :ip_address, presence: true, uniqueness: true
+    validates :ip_address, presence: true, uniqueness: true
 
     before_create :set_referral_code
     after_create :welcome_email
@@ -74,6 +74,7 @@ class User < ActiveRecord::Base
     private
 
     def set_referral_code
+        puts "before create\n"
     	self.referral_code = generate_referral_code
     end
 

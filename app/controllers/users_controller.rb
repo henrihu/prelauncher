@@ -40,7 +40,6 @@ class UsersController < ApplicationController
 
 
 	def create
-
 		@user = User.new(user_params)
 		@user.referrer_id = session[:referrer_id] if session[:referrer_id].present?
 		@user.ip_address = request.ip
@@ -48,13 +47,13 @@ class UsersController < ApplicationController
 		if @user.save
 			cookies[:user_id] = @user.id
 			respond_to do |format|
-	            format.html {redirect_to user_path(@user.referral_code), notice: "Thank you for singing up."}
-	        end
-	    else
-			respond_to do |format|
-	            format.html {redirect_to new_user_path, alert: "Subscribing multiple emails is not allowed."}
-	        end
+	    	format.html {redirect_to user_path(@user.referral_code), notice: "Thank you for singing up."}
 	    end
+	  else
+			respond_to do |format|
+	      format.html {redirect_to root_path, alert: "Subscribing multiple emails is not allowed."}
+	    end
+	  end
 	end
 
 
