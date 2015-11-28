@@ -16,6 +16,9 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
+		@user = User.find_by_referral_code(params[:id])
+		return if @user.nil?
+
 		if @user.destroy
 			redirect_to users_path, notice: "User has been successfully deleted."
 		else

@@ -74,7 +74,6 @@ class User < ActiveRecord::Base
     private
 
     def set_referral_code
-        puts "before create\n"
     	self.referral_code = generate_referral_code
     end
 
