@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
     has_many :referrals, class_name: "User", foreign_key: :referrer_id
 
     validates :email, uniqueness: true, format: { with: Devise::email_regexp, message: "Invalid email format." }, presence: true
-    validates :ip_address, presence: true, uniqueness: true
+    validates :ip_address, presence: true #, uniqueness: true
+    validate :ip_address_blocking_check
 
     before_create :set_referral_code
     after_create :welcome_email
@@ -88,4 +89,8 @@ class User < ActiveRecord::Base
         UserMailer.delay.sign_up_email(self)
     end
 
+    def ip_address_blocking_check
+        errors.add(:ip_address, " can't add email more than " + Setting.blocking_count.to_s) unless 
+            self.class.where(ip_address: self.ip_address).count < Setting.blocking_count
+    end
 end

@@ -12,6 +12,10 @@ class Setting < ActiveRecord::Base
 	after_save :clear_cache
 
 
+	def self.blocking_count
+		(Setting.first || Setting.new).blocking_count
+	end
+	
 	def self.cover_image
 		(Setting.first || Setting.new).cover_image
 	end

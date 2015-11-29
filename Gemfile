@@ -42,6 +42,7 @@ gem 'rails_12factor', group: :production
 gem "font-awesome-rails"
 gem "paperclip"
 
+gem "figaro"
 group :development, :test do
 	gem 'pry-rails'
 end

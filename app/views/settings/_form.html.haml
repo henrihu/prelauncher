@@ -22,6 +22,7 @@
 	%legend Email
 	.form-group.form-group-sm
 		.col-sm-4
+			= f.input :blocking_count, as: :string, label: "IP blocking Count", placeholder: "Blocking Count", required: false
 			= f.input :email_subject, as: :string, label: "Subject", placeholder: "Subject", required: false
 			= f.input :email_message, as: :text, label: "Message", placeholder: "Message", required: false
 
