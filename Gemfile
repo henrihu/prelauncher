@@ -32,6 +32,7 @@ gem 'unicorn'
 gem 'rack-timeout'
 
 gem 'delayed_job_active_record'
+gem "daemons"
 
 # Load twitter bootstrap CSS, JavaSript files
 gem 'bootstrap-sass'
