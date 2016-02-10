@@ -1,6 +1,6 @@
 class PrizesController < ApplicationController
 	before_action :fetch_prize, except: [:index, :new, :create]
-	before_action :authenticate_admin
+	#before_action :authenticate_admin
 
 	def index
 		@prizes = Prize.all
