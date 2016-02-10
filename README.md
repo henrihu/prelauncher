@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Techofficer/prelauncher.svg?branch=master)](https://travis-ci.org/Techofficer/prelauncher)
+[![Build Status](https://travis-ci.org/Techofficer/prelauncher.svg?branch=master)]
 
 # PRELAUNCHER
 
